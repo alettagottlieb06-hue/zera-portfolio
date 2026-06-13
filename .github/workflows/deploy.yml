@@ -33,8 +33,9 @@ jobs:
 
       - name: Build static web app
         run: |
-          # Compiles your code into a WebAssembly build folder automatically
-          flet build web --base-url /${{ github.event.repository.name }}/ --route-url-strategy hash --yes
+          # Compiles tuni.py into a WebAssembly build folder automatically
+          # Added --module-name tuni to point to your specific file
+          flet build web --base-url /${{ github.event.repository.name }}/ --route-url-strategy hash --module-name tuni --yes
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
