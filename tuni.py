@@ -56,8 +56,7 @@ def main(page: ft.Page):
                 ], alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER),
                 alignment=ft.alignment.center,
                 padding=10,
-                # Fixed relative asset path for web instances
-                on_click=lambda e: page.launch_url(f"/{file_name}", web_browser=True), 
+                on_click=lambda e: page.launch_url(f"{file_name}", web_browser=True), 
                 ink=True
             )
         )
@@ -90,7 +89,7 @@ def main(page: ft.Page):
                 controls=[
                     ft.Container(
                         content=ft.Image(
-                            src="/zera.JPG",  # Added leading slash for web compilation stability
+                            src="zera.JPG",  
                             fit=ft.ImageFit.CONTAIN,
                             border_radius=12,
                         ),
@@ -101,7 +100,7 @@ def main(page: ft.Page):
                     ft.Container(height=10),
                     ft.Video(
                         expand=False,
-                        playlist=[ft.VideoMedia("/alleta.mp4")], # Added leading slash for web packaging layout
+                        playlist=[ft.VideoMedia("alleta.mp4")], 
                         playlist_mode=ft.PlaylistMode.LOOP,
                         fill_color=ft.colors.BLACK,
                         aspect_ratio=16/9,
@@ -247,7 +246,7 @@ def main(page: ft.Page):
             ft.Text("Latest snapshot of the active GitHub ecosystem branch:", style=ft.TextThemeStyle.BODY_MEDIUM),
             ft.Container(height=10),
             ft.Image(
-                src="/commit_history.png",  # Updated name with proper forward slash for web
+                src="commit_history.png",  
                 fit=ft.ImageFit.CONTAIN,
                 border_radius=8,
             )
@@ -343,3 +342,5 @@ def main(page: ft.Page):
 
 if __name__ == "__main__":
     ft.app(target=main, assets_dir="assets")
+ft.app(target=main, assets_dir="assets")
+#
