@@ -244,10 +244,13 @@ def main(page: ft.Page):
         content=ft.Column([
             ft.Text("Commit History", style=ft.TextThemeStyle.HEADLINE_MEDIUM, color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
             ft.Divider(color=ft.colors.OUTLINE),
-            ft.Text("feat: Add Firebase Auth login screen with email/password validation", font_family="monospace", color=ft.colors.GREEN_300),
-            ft.Text("feat: Implement Firestore write for daily inspection report submission", font_family="monospace", color=ft.colors.GREEN_300),
-            ft.Text("fix: Resolve crash when Firestore query returns an empty collection", font_family="monospace", color=ft.colors.AMBER_300),
-            ft.Text("docs: Add Firestore data model section to SRS document", font_family="monospace", color=ft.colors.BLUE_300),
+            ft.Text("Latest snapshot of the active GitHub ecosystem branch:", style=ft.TextThemeStyle.BODY_MEDIUM),
+            ft.Container(height=10),
+            ft.Image(
+                src="/commit_history.png",  # Updated name with proper forward slash for web
+                fit=ft.ImageFit.CONTAIN,
+                border_radius=8,
+            )
         ]),
         padding=20,
         bgcolor=BG_CARD_COLOR,
