@@ -56,7 +56,8 @@ def main(page: ft.Page):
                 ], alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER),
                 alignment=ft.alignment.center,
                 padding=10,
-                on_click=lambda e: page.launch_url(f"{file_name}", web_browser=True), 
+                # Fixed relative asset path for web instances
+                on_click=lambda e: page.launch_url(f"/{file_name}", web_browser=True), 
                 ink=True
             )
         )
@@ -72,10 +73,13 @@ def main(page: ft.Page):
                 controls=[
                     ft.Text("About Me", style=ft.TextThemeStyle.HEADLINE_LARGE, color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
                     ft.Text(
-                        "Hello, my name is Gabriel Filemon Shuumbwa, a second-year Electrical Engineering student with a strong interest in software development and problem-solving. "
-                        "During my semester project, I was responsible for project documentation while also assisting with the development of the application alongside the project manager, Aletta Gottlieb. "
-                        "Working on the project allowed me to gain practical experience in software development, teamwork, and project planning. "
-                        "I enjoy learning new technologies, improving my coding skills, and applying engineering principles to create useful solutions to real-world problems.",
+                        "My name is Aletta Gottlieb, and I am a second-year Electronics and Computer Engineering student. "
+                        "During my studies, I participated in a semester project where our team developed an application called BlastMasterPro.\n\n"
+                        "In this project, I served as the Project Manager, where I was responsible for coordinating team activities, "
+                        "ensuring meetings were conducted as scheduled, and making sure project milestones were completed according to the timeline.\n\n"
+                        "The purpose of BlastMasterPro was to assist mining professionals by providing a blasting calculator that simplifies and improves the blasting process.\n\n"
+                        "In addition to project management, I have skills in MATLAB, programming, circuit design, and various technical aspects of engineering. "
+                        "I am passionate about applying technology and engineering principles to develop practical solutions to real-world problems.",
                         style=ft.TextThemeStyle.BODY_LARGE
                     ),
                 ],
@@ -86,7 +90,7 @@ def main(page: ft.Page):
                 controls=[
                     ft.Container(
                         content=ft.Image(
-                            src="zera.JPG", 
+                            src="/zera.JPG",  # Added leading slash for web compilation stability
                             fit=ft.ImageFit.CONTAIN,
                             border_radius=12,
                         ),
@@ -97,7 +101,7 @@ def main(page: ft.Page):
                     ft.Container(height=10),
                     ft.Video(
                         expand=False,
-                        playlist=[ft.VideoMedia("alleta.mp4")],
+                        playlist=[ft.VideoMedia("/alleta.mp4")], # Added leading slash for web packaging layout
                         playlist_mode=ft.PlaylistMode.LOOP,
                         fill_color=ft.colors.BLACK,
                         aspect_ratio=16/9,
@@ -184,50 +188,15 @@ def main(page: ft.Page):
         content=ft.Column([
             ft.Text("Technical Blog / Engineering Logs", style=ft.TextThemeStyle.HEADLINE_MEDIUM, color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
             ft.Divider(color=ft.colors.OUTLINE),
-            ft.ExpansionTile(
-                leading=ft.Icon(ft.icons.ARTICLE),
-                title=ft.Text("Lessons I Learned During Our Semester Project"),
-                subtitle=ft.Text("Reflections on documentation challenges, time management, and code architecture..."),
-                controls=[
-                    ft.Container(
-                        padding=15,
-                        content=ft.Text(
-                            "One of the most valuable experiences in my academic journey was working on our semester project. "
-                            "My primary responsibility was project documentation, but I also assisted with coding and worked closely "
-                            "with our project manager, Aletta Gottlieb, throughout the development process.\n\n"
-                            "Like many software projects, we faced several challenges during development. There were times when our "
-                            "application crashed due to errors in the code, and troubleshooting these issues often took longer than expected. "
-                            "Although these challenges were frustrating, they taught us important lessons about software development and teamwork.\n\n"
-                            "One lesson I learned is the importance of following a well-planned timeline. When tasks are completed according "
-                            "to schedule, it becomes easier to identify problems early and make necessary adjustments. Good time management "
-                            "also reduces pressure and helps the team stay focused on project goals.\n\n"
-                            "Another important lesson was the value of having a clear logic and structure before starting development. "
-                            "Understanding how the application should be organized, how different components interact, and how data flows "
-                            "through the system makes coding more efficient and helps prevent unnecessary errors.\n\n"
-                            "This project strengthened my technical skills, improved my ability to work within a team, and showed me that "
-                            "successful software development requires careful planning, communication, and persistence. The challenges we "
-                            "faced became opportunities to learn, and the experience has prepared me for future projects in both my academic "
-                            "and professional career.",
-                            style=ft.TextThemeStyle.BODY_MEDIUM
-                        )
-                    )
-                ]
-            ),
-            ft.ExpansionTile(
+            ft.ListTile(
                 leading=ft.Icon(ft.icons.ARTICLE),
                 title=ft.Text("Mastering Flet UI Layouts"),
                 subtitle=ft.Text("Deep dive into building responsive architectures using Python structures..."),
-                controls=[
-                    ft.Container(
-                        padding=15,
-                        content=ft.Text(
-                            "Flet allows python developers to build real-time interactive web, mobile, and desktop layouts without "
-                            "needing a deep knowledge of frontend web technologies. Leveraging responsive frameworks like ResponsiveRow "
-                            "ensures smooth transitions across varying screen constraints.",
-                            style=ft.TextThemeStyle.BODY_MEDIUM
-                        )
-                    )
-                ]
+            ),
+            ft.ListTile(
+                leading=ft.Icon(ft.icons.ARTICLE),
+                title=ft.Text("Understanding Vector Calculus in System Models"),
+                subtitle=ft.Text("Analyzing matrices and spatial gradients for engineering setups..."),
             ),
         ]),
         padding=20,
@@ -275,13 +244,10 @@ def main(page: ft.Page):
         content=ft.Column([
             ft.Text("Commit History", style=ft.TextThemeStyle.HEADLINE_MEDIUM, color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
             ft.Divider(color=ft.colors.OUTLINE),
-            ft.Text("Latest snapshot of the active GitHub ecosystem branch:", style=ft.TextThemeStyle.BODY_MEDIUM),
-            ft.Container(height=10),
-            ft.Image(
-                src="Screenshot 2026-06-13 120640.png",
-                fit=ft.ImageFit.CONTAIN,
-                border_radius=8,
-            )
+            ft.Text("feat: Add Firebase Auth login screen with email/password validation", font_family="monospace", color=ft.colors.GREEN_300),
+            ft.Text("feat: Implement Firestore write for daily inspection report submission", font_family="monospace", color=ft.colors.GREEN_300),
+            ft.Text("fix: Resolve crash when Firestore query returns an empty collection", font_family="monospace", color=ft.colors.AMBER_300),
+            ft.Text("docs: Add Firestore data model section to SRS document", font_family="monospace", color=ft.colors.BLUE_300),
         ]),
         padding=20,
         bgcolor=BG_CARD_COLOR,
