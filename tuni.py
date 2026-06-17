@@ -6,7 +6,6 @@ def main(page: ft.Page):
     page.scroll = ft.ScrollMode.AUTO
     
     # --- Theme Configurations ---
-    # FIXED: Changed ft.colors to ft.Colors
     PRIMARY_COLOR = ft.Colors.BLUE_400
     BG_CARD_COLOR = ft.Colors.SURFACE_VARIANT
 
@@ -51,10 +50,8 @@ def main(page: ft.Page):
         return ft.Card(
             content=ft.Container(
                 content=ft.Column([
-                    # FIXED: Changed ft.colors to ft.Colors
                     ft.Icon(ft.icons.PICTURE_AS_PDF_ROUNDED, size=40, color=ft.Colors.RED_400),
                     ft.Text(title, weight=ft.FontWeight.BOLD, text_align=ft.TextAlign.CENTER, max_lines=2, size=13),
-                    # FIXED: Changed ft.colors to ft.Colors
                     ft.Text("Click to read", size=11, color=ft.Colors.BLUE_200)
                 ], alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER),
                 alignment=ft.alignment.center,
@@ -73,7 +70,8 @@ def main(page: ft.Page):
             ft.Column(
                 col={"sm": 12, "md": 7},
                 controls=[
-                    ft.Text("About Me", style=ft.TextThemeStyle.HEADLINE_LARGE, color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
+                    # FIXED: Changed style enum to modern string literal
+                    ft.Text("About Me", style="headlineLarge", color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
                     ft.Text(
                         "My name is Aletta Gottlieb, and I am a second-year Electronics and Computer Engineering student. "
                         "During my studies, I participated in a semester project where our team developed an application called BlastMasterPro.\n\n"
@@ -82,7 +80,8 @@ def main(page: ft.Page):
                         "The purpose of BlastMasterPro was to assist mining professionals by providing a blasting calculator that simplifies and improves the blasting process.\n\n"
                         "In addition to project management, I have skills in MATLAB, programming, circuit design, and various technical aspects of engineering. "
                         "I am passionate about applying technology and engineering principles to develop practical solutions to real-world problems.",
-                        style=ft.TextThemeStyle.BODY_LARGE
+                        # FIXED: Changed style enum to modern string literal
+                        style="bodyLarge"
                     ),
                 ],
                 alignment=ft.MainAxisAlignment.CENTER
@@ -105,7 +104,6 @@ def main(page: ft.Page):
                         expand=False,
                         playlist=[ft.VideoMedia("alleta.mp4")], 
                         playlist_mode=ft.PlaylistMode.LOOP,
-                        # FIXED: Changed ft.colors to ft.Colors
                         fill_color=ft.Colors.BLACK,
                         aspect_ratio=16/9,
                         volume=100,
@@ -127,12 +125,14 @@ def main(page: ft.Page):
     timeline_section = ft.Container(
         key="timeline",
         content=ft.Column([
-            ft.Text("Official Project Timeline", style=ft.TextThemeStyle.HEADLINE_MEDIUM, color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
-            ft.Text("13691CP — 14-Week Semester Layout (02 March – 13 June 2026)", style=ft.TextThemeStyle.BODY_SMALL, italic=True),
-            # FIXED: Changed ft.colors to ft.Colors
+            # FIXED: Changed style enum to modern string literal
+            ft.Text("Official Project Timeline", style="headlineMedium", color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
+            # FIXED: Changed style enum to modern string literal
+            ft.Text("13691CP — 14-Week Semester Layout (02 March – 13 June 2026)", style="bodySmall", italic=True),
             ft.Divider(color=ft.Colors.OUTLINE),
             
-            ft.Text("Project Phases Overview", style=ft.TextThemeStyle.TITLE_MEDIUM, weight=ft.FontWeight.BOLD),
+            # FIXED: Changed style enum to modern string literal
+            ft.Text("Project Phases Overview", style="titleMedium", weight=ft.FontWeight.BOLD),
             ft.Row([
                 ft.DataTable(
                     columns=[
@@ -153,7 +153,8 @@ def main(page: ft.Page):
             
             ft.Container(height=15),
             
-            ft.Text("Detailed Weekly Schedule", style=ft.TextThemeStyle.TITLE_MEDIUM, weight=ft.FontWeight.BOLD),
+            # FIXED: Changed style enum to modern string literal
+            ft.Text("Detailed Weekly Schedule", style="titleMedium", weight=ft.FontWeight.BOLD),
             ft.Row([
                 ft.DataTable(
                     columns=[
@@ -190,8 +191,8 @@ def main(page: ft.Page):
     blog_section = ft.Container(
         key="blog",
         content=ft.Column([
-            ft.Text("Technical Blog / Engineering Logs", style=ft.TextThemeStyle.HEADLINE_MEDIUM, color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
-            # FIXED: Changed ft.colors to ft.Colors
+            # FIXED: Changed style enum to modern string literal
+            ft.Text("Technical Blog / Engineering Logs", style="headlineMedium", color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
             ft.Divider(color=ft.Colors.OUTLINE),
             ft.ListTile(
                 leading=ft.Icon(ft.icons.ARTICLE),
@@ -214,10 +215,11 @@ def main(page: ft.Page):
     matlab_section = ft.Container(
         key="matlab",
         content=ft.Column([
-            ft.Text("Matlab Achievement Hub", style=ft.TextThemeStyle.HEADLINE_MEDIUM, color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
-            # FIXED: Changed ft.colors to ft.Colors
+            # FIXED: Changed style enum to modern string literal
+            ft.Text("Matlab Achievement Hub", style="headlineMedium", color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
             ft.Divider(color=ft.Colors.OUTLINE),
-            ft.Text("Engineering app instances, RLC parallel resonance analysis profiles, and Simulink control layouts module representations live here.", style=ft.TextThemeStyle.BODY_MEDIUM),
+            # FIXED: Changed style enum to modern string literal
+            ft.Text("Engineering app instances, RLC parallel resonance analysis profiles, and Simulink control layouts module representations live here.", style="bodyMedium"),
             ft.Container(height=5),
             ft.GridView(
                 expand=False,
@@ -248,10 +250,11 @@ def main(page: ft.Page):
     commit_section = ft.Container(
         key="commit",
         content=ft.Column([
-            ft.Text("Commit History", style=ft.TextThemeStyle.HEADLINE_MEDIUM, color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
-            # FIXED: Changed ft.colors to ft.Colors
+            # FIXED: Changed style enum to modern string literal
+            ft.Text("Commit History", style="headlineMedium", color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
             ft.Divider(color=ft.Colors.OUTLINE),
-            ft.Text("Latest snapshot of the active GitHub ecosystem branch:", style=ft.TextThemeStyle.BODY_MEDIUM),
+            # FIXED: Changed style enum to modern string literal
+            ft.Text("Latest snapshot of the active GitHub ecosystem branch:", style="bodyMedium"),
             ft.Container(height=10),
             ft.Image(
                 src="commit_history.png",  
@@ -269,24 +272,23 @@ def main(page: ft.Page):
     pr_section = ft.Container(
         key="pr",
         content=ft.Column([
-            ft.Text("Pull Request Logs", style=ft.TextThemeStyle.HEADLINE_MEDIUM, color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
-            # FIXED: Changed ft.colors to ft.Colors
+            # FIXED: Changed style enum to modern string literal
+            ft.Text("Pull Request Logs", style="headlineMedium", color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
             ft.Divider(color=ft.Colors.OUTLINE),
             ft.Row([
-                # FIXED: Changed ft.colors to ft.Colors
                 ft.Icon(ft.icons.MERGE_TYPE, color=ft.Colors.PURPLE_400),
-                ft.Text("PR #12: Merged Phase 2 SRS functional models into documentation main branch", style=ft.TextThemeStyle.BODY_MEDIUM)
+                # FIXED: Changed style enum to modern string literal
+                ft.Text("PR #12: Merged Phase 2 SRS functional models into documentation main branch", style="bodyMedium")
             ]),
             ft.Row([
-                # FIXED: Changed ft.colors to ft.Colors
                 ft.Icon(ft.icons.MERGE_TYPE, color=ft.Colors.PURPLE_400),
-                ft.Text("PR #11: Implemented foundational Expo configuration files and initial dependencies", style=ft.TextThemeStyle.BODY_MEDIUM)
+                # FIXED: Changed style enum to modern string literal
+                ft.Text("PR #11: Implemented foundational Expo configuration files and initial dependencies", style="bodyMedium")
             ]),
             ft.Container(height=10),
             ft.ElevatedButton(
                 text="View on GitHub",
                 icon=ft.icons.LAUNCH,
-                # FIXED: Changed ft.colors to ft.Colors
                 color=ft.Colors.WHITE,
                 bgcolor=ft.Colors.BLUE_600,
                 on_click=open_github
@@ -310,7 +312,6 @@ def main(page: ft.Page):
             ft.Text("Welcome To My Portfolio", weight=ft.FontWeight.W_500)
         ], spacing=10),
         center_title=False,
-        # FIXED: Changed ft.colors to ft.Colors
         bgcolor=ft.Colors.SURFACE,
         actions=[
             ft.IconButton(ft.icons.ADMIN_PANEL_SETTINGS_OUTLINED, on_click=handle_admin_click, tooltip="take me to admin_console"),
