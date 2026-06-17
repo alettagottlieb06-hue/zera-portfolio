@@ -70,7 +70,6 @@ def main(page: ft.Page):
             ft.Column(
                 col={"sm": 12, "md": 7},
                 controls=[
-                    # FIXED: Changed style enum to modern string literal
                     ft.Text("About Me", style="headlineLarge", color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
                     ft.Text(
                         "My name is Aletta Gottlieb, and I am a second-year Electronics and Computer Engineering student. "
@@ -80,7 +79,6 @@ def main(page: ft.Page):
                         "The purpose of BlastMasterPro was to assist mining professionals by providing a blasting calculator that simplifies and improves the blasting process.\n\n"
                         "In addition to project management, I have skills in MATLAB, programming, circuit design, and various technical aspects of engineering. "
                         "I am passionate about applying technology and engineering principles to develop practical solutions to real-world problems.",
-                        # FIXED: Changed style enum to modern string literal
                         style="bodyLarge"
                     ),
                 ],
@@ -125,13 +123,10 @@ def main(page: ft.Page):
     timeline_section = ft.Container(
         key="timeline",
         content=ft.Column([
-            # FIXED: Changed style enum to modern string literal
             ft.Text("Official Project Timeline", style="headlineMedium", color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
-            # FIXED: Changed style enum to modern string literal
             ft.Text("13691CP — 14-Week Semester Layout (02 March – 13 June 2026)", style="bodySmall", italic=True),
             ft.Divider(color=ft.Colors.OUTLINE),
             
-            # FIXED: Changed style enum to modern string literal
             ft.Text("Project Phases Overview", style="titleMedium", weight=ft.FontWeight.BOLD),
             ft.Row([
                 ft.DataTable(
@@ -153,7 +148,6 @@ def main(page: ft.Page):
             
             ft.Container(height=15),
             
-            # FIXED: Changed style enum to modern string literal
             ft.Text("Detailed Weekly Schedule", style="titleMedium", weight=ft.FontWeight.BOLD),
             ft.Row([
                 ft.DataTable(
@@ -191,7 +185,6 @@ def main(page: ft.Page):
     blog_section = ft.Container(
         key="blog",
         content=ft.Column([
-            # FIXED: Changed style enum to modern string literal
             ft.Text("Technical Blog / Engineering Logs", style="headlineMedium", color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
             ft.Divider(color=ft.Colors.OUTLINE),
             ft.ListTile(
@@ -215,10 +208,8 @@ def main(page: ft.Page):
     matlab_section = ft.Container(
         key="matlab",
         content=ft.Column([
-            # FIXED: Changed style enum to modern string literal
             ft.Text("Matlab Achievement Hub", style="headlineMedium", color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
             ft.Divider(color=ft.Colors.OUTLINE),
-            # FIXED: Changed style enum to modern string literal
             ft.Text("Engineering app instances, RLC parallel resonance analysis profiles, and Simulink control layouts module representations live here.", style="bodyMedium"),
             ft.Container(height=5),
             ft.GridView(
@@ -250,10 +241,8 @@ def main(page: ft.Page):
     commit_section = ft.Container(
         key="commit",
         content=ft.Column([
-            # FIXED: Changed style enum to modern string literal
             ft.Text("Commit History", style="headlineMedium", color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
             ft.Divider(color=ft.Colors.OUTLINE),
-            # FIXED: Changed style enum to modern string literal
             ft.Text("Latest snapshot of the active GitHub ecosystem branch:", style="bodyMedium"),
             ft.Container(height=10),
             ft.Image(
@@ -272,17 +261,14 @@ def main(page: ft.Page):
     pr_section = ft.Container(
         key="pr",
         content=ft.Column([
-            # FIXED: Changed style enum to modern string literal
             ft.Text("Pull Request Logs", style="headlineMedium", color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
             ft.Divider(color=ft.Colors.OUTLINE),
             ft.Row([
                 ft.Icon(ft.icons.MERGE_TYPE, color=ft.Colors.PURPLE_400),
-                # FIXED: Changed style enum to modern string literal
                 ft.Text("PR #12: Merged Phase 2 SRS functional models into documentation main branch", style="bodyMedium")
             ]),
             ft.Row([
                 ft.Icon(ft.icons.MERGE_TYPE, color=ft.Colors.PURPLE_400),
-                # FIXED: Changed style enum to modern string literal
                 ft.Text("PR #11: Implemented foundational Expo configuration files and initial dependencies", style="bodyMedium")
             ]),
             ft.Container(height=10),
