@@ -6,8 +6,9 @@ def main(page: ft.Page):
     page.scroll = ft.ScrollMode.AUTO
     
     # --- Theme Configurations ---
-    PRIMARY_COLOR = ft.colors.BLUE_400
-    BG_CARD_COLOR = ft.colors.SURFACE_VARIANT
+    # FIXED: Changed ft.colors to ft.Colors
+    PRIMARY_COLOR = ft.Colors.BLUE_400
+    BG_CARD_COLOR = ft.Colors.SURFACE_VARIANT
 
     # --- Navigation Event Handlers ---
     def handle_menu_click(e):
@@ -50,9 +51,11 @@ def main(page: ft.Page):
         return ft.Card(
             content=ft.Container(
                 content=ft.Column([
-                    ft.Icon(ft.icons.PICTURE_AS_PDF_ROUNDED, size=40, color=ft.colors.RED_400),
+                    # FIXED: Changed ft.colors to ft.Colors
+                    ft.Icon(ft.icons.PICTURE_AS_PDF_ROUNDED, size=40, color=ft.Colors.RED_400),
                     ft.Text(title, weight=ft.FontWeight.BOLD, text_align=ft.TextAlign.CENTER, max_lines=2, size=13),
-                    ft.Text("Click to read", size=11, color=ft.colors.BLUE_200)
+                    # FIXED: Changed ft.colors to ft.Colors
+                    ft.Text("Click to read", size=11, color=ft.Colors.BLUE_200)
                 ], alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER),
                 alignment=ft.alignment.center,
                 padding=10,
@@ -102,7 +105,8 @@ def main(page: ft.Page):
                         expand=False,
                         playlist=[ft.VideoMedia("alleta.mp4")], 
                         playlist_mode=ft.PlaylistMode.LOOP,
-                        fill_color=ft.colors.BLACK,
+                        # FIXED: Changed ft.colors to ft.Colors
+                        fill_color=ft.Colors.BLACK,
                         aspect_ratio=16/9,
                         volume=100,
                         autoplay=False,
@@ -125,7 +129,8 @@ def main(page: ft.Page):
         content=ft.Column([
             ft.Text("Official Project Timeline", style=ft.TextThemeStyle.HEADLINE_MEDIUM, color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
             ft.Text("13691CP — 14-Week Semester Layout (02 March – 13 June 2026)", style=ft.TextThemeStyle.BODY_SMALL, italic=True),
-            ft.Divider(color=ft.colors.OUTLINE),
+            # FIXED: Changed ft.colors to ft.Colors
+            ft.Divider(color=ft.Colors.OUTLINE),
             
             ft.Text("Project Phases Overview", style=ft.TextThemeStyle.TITLE_MEDIUM, weight=ft.FontWeight.BOLD),
             ft.Row([
@@ -186,7 +191,8 @@ def main(page: ft.Page):
         key="blog",
         content=ft.Column([
             ft.Text("Technical Blog / Engineering Logs", style=ft.TextThemeStyle.HEADLINE_MEDIUM, color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
-            ft.Divider(color=ft.colors.OUTLINE),
+            # FIXED: Changed ft.colors to ft.Colors
+            ft.Divider(color=ft.Colors.OUTLINE),
             ft.ListTile(
                 leading=ft.Icon(ft.icons.ARTICLE),
                 title=ft.Text("Mastering Flet UI Layouts"),
@@ -209,7 +215,8 @@ def main(page: ft.Page):
         key="matlab",
         content=ft.Column([
             ft.Text("Matlab Achievement Hub", style=ft.TextThemeStyle.HEADLINE_MEDIUM, color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
-            ft.Divider(color=ft.colors.OUTLINE),
+            # FIXED: Changed ft.colors to ft.Colors
+            ft.Divider(color=ft.Colors.OUTLINE),
             ft.Text("Engineering app instances, RLC parallel resonance analysis profiles, and Simulink control layouts module representations live here.", style=ft.TextThemeStyle.BODY_MEDIUM),
             ft.Container(height=5),
             ft.GridView(
@@ -242,7 +249,8 @@ def main(page: ft.Page):
         key="commit",
         content=ft.Column([
             ft.Text("Commit History", style=ft.TextThemeStyle.HEADLINE_MEDIUM, color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
-            ft.Divider(color=ft.colors.OUTLINE),
+            # FIXED: Changed ft.colors to ft.Colors
+            ft.Divider(color=ft.Colors.OUTLINE),
             ft.Text("Latest snapshot of the active GitHub ecosystem branch:", style=ft.TextThemeStyle.BODY_MEDIUM),
             ft.Container(height=10),
             ft.Image(
@@ -262,21 +270,25 @@ def main(page: ft.Page):
         key="pr",
         content=ft.Column([
             ft.Text("Pull Request Logs", style=ft.TextThemeStyle.HEADLINE_MEDIUM, color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
-            ft.Divider(color=ft.colors.OUTLINE),
+            # FIXED: Changed ft.colors to ft.Colors
+            ft.Divider(color=ft.Colors.OUTLINE),
             ft.Row([
-                ft.Icon(ft.icons.MERGE_TYPE, color=ft.colors.PURPLE_400),
+                # FIXED: Changed ft.colors to ft.Colors
+                ft.Icon(ft.icons.MERGE_TYPE, color=ft.Colors.PURPLE_400),
                 ft.Text("PR #12: Merged Phase 2 SRS functional models into documentation main branch", style=ft.TextThemeStyle.BODY_MEDIUM)
             ]),
             ft.Row([
-                ft.Icon(ft.icons.MERGE_TYPE, color=ft.colors.PURPLE_400),
+                # FIXED: Changed ft.colors to ft.Colors
+                ft.Icon(ft.icons.MERGE_TYPE, color=ft.Colors.PURPLE_400),
                 ft.Text("PR #11: Implemented foundational Expo configuration files and initial dependencies", style=ft.TextThemeStyle.BODY_MEDIUM)
             ]),
             ft.Container(height=10),
             ft.ElevatedButton(
                 text="View on GitHub",
                 icon=ft.icons.LAUNCH,
-                color=ft.colors.WHITE,
-                bgcolor=ft.colors.BLUE_600,
+                # FIXED: Changed ft.colors to ft.Colors
+                color=ft.Colors.WHITE,
+                bgcolor=ft.Colors.BLUE_600,
                 on_click=open_github
             )
         ]),
@@ -298,7 +310,8 @@ def main(page: ft.Page):
             ft.Text("Welcome To My Portfolio", weight=ft.FontWeight.W_500)
         ], spacing=10),
         center_title=False,
-        bgcolor=ft.colors.SURFACE,
+        # FIXED: Changed ft.colors to ft.Colors
+        bgcolor=ft.Colors.SURFACE,
         actions=[
             ft.IconButton(ft.icons.ADMIN_PANEL_SETTINGS_OUTLINED, on_click=handle_admin_click, tooltip="take me to admin_console"),
         ],
@@ -342,4 +355,3 @@ def main(page: ft.Page):
 
 if __name__ == "__main__":
     ft.app(target=main, assets_dir="assets")
-
