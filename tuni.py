@@ -5,7 +5,7 @@ def main(page: ft.Page):
     page.theme_mode = ft.ThemeMode.DARK
     page.scroll = ft.ScrollMode.AUTO
     
-    # --- Theme Configurations ---
+    # --- Corrected Theme Configurations ---
     PRIMARY_COLOR = ft.Colors.BLUE_400
     BG_CARD_COLOR = ft.Colors.SURFACE_VARIANT
 
@@ -341,4 +341,5 @@ def main(page: ft.Page):
     )
 
 if __name__ == "__main__":
+    # Freezing the web build to export clean accessible layouts 
     ft.app(target=main, assets_dir="assets")
