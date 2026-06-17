@@ -5,7 +5,7 @@ def main(page: ft.Page):
     page.theme_mode = ft.ThemeMode.DARK
     page.scroll = ft.ScrollMode.AUTO
     
-    # --- Corrected Theme Configurations ---
+    # --- Corrected Theme Configurations (Capitalized 'Colors') ---
     PRIMARY_COLOR = ft.Colors.BLUE_400
     BG_CARD_COLOR = ft.Colors.SURFACE_VARIANT
 
@@ -70,6 +70,7 @@ def main(page: ft.Page):
             ft.Column(
                 col={"sm": 12, "md": 7},
                 controls=[
+                    # Fixed: Replaced ft.TextThemeStyle enum with exact string literal values
                     ft.Text("About Me", style="headlineLarge", color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
                     ft.Text(
                         "My name is Aletta Gottlieb, and I am a second-year Electronics and Computer Engineering student. "
@@ -123,6 +124,7 @@ def main(page: ft.Page):
     timeline_section = ft.Container(
         key="timeline",
         content=ft.Column([
+            # Fixed: Replaced deprecated text style enums with safe string configurations
             ft.Text("Official Project Timeline", style="headlineMedium", color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
             ft.Text("13691CP — 14-Week Semester Layout (02 March – 13 June 2026)", style="bodySmall", italic=True),
             ft.Divider(color=ft.Colors.OUTLINE),
@@ -341,5 +343,4 @@ def main(page: ft.Page):
     )
 
 if __name__ == "__main__":
-    # Freezing the web build to export clean accessible layouts 
     ft.app(target=main, assets_dir="assets")
