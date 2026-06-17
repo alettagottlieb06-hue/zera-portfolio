@@ -1,11 +1,12 @@
 import flet as ft
+import os
 
 def main(page: ft.Page):
     page.title = "Welcome To My Portfolio"
     page.theme_mode = ft.ThemeMode.DARK
     page.scroll = ft.ScrollMode.AUTO
     
-    # --- Corrected Theme Configurations (Capitalized 'Colors') ---
+    # --- FIXED: Corrected PascalCase for Colors ---
     PRIMARY_COLOR = ft.Colors.BLUE_400
     BG_CARD_COLOR = ft.Colors.SURFACE_VARIANT
 
@@ -45,7 +46,7 @@ def main(page: ft.Page):
     def open_github(e):
         page.launch_url("https://github.com/waardeakawa-sys/UNAM-I36991CP-GROUP-10-TOOLBOX/pulls")
 
-    # Helper function to generate PDF interactive cards dynamically
+    # Dynamic interactive asset cards
     def create_certificate_card(title, file_name):
         return ft.Card(
             content=ft.Container(
@@ -70,7 +71,7 @@ def main(page: ft.Page):
             ft.Column(
                 col={"sm": 12, "md": 7},
                 controls=[
-                    # Fixed: Replaced ft.TextThemeStyle enum with exact string literal values
+                    # FIXED: Swapped TextThemeStyle enums out for native clean string literals
                     ft.Text("About Me", style="headlineLarge", color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
                     ft.Text(
                         "My name is Aletta Gottlieb, and I am a second-year Electronics and Computer Engineering student. "
@@ -124,7 +125,6 @@ def main(page: ft.Page):
     timeline_section = ft.Container(
         key="timeline",
         content=ft.Column([
-            # Fixed: Replaced deprecated text style enums with safe string configurations
             ft.Text("Official Project Timeline", style="headlineMedium", color=PRIMARY_COLOR, weight=ft.FontWeight.BOLD),
             ft.Text("13691CP — 14-Week Semester Layout (02 March – 13 June 2026)", style="bodySmall", italic=True),
             ft.Divider(color=ft.Colors.OUTLINE),
@@ -342,5 +342,30 @@ def main(page: ft.Page):
         )
     )
 
+# --- AUTOMATED WEB PATCH FOR WEBHINT ERRORS ---
+def apply_webhint_patch():
+    """Finds the exported web layout and injects compliance variables."""
+    web_dir = os.path.join(os.path.dirname(__file__), "web")
+    index_html = os.path.join(web_dir, "index.html")
+    if os.path.exists(index_html):
+        with open(index_html, "r", encoding="utf-8") as f:
+            content = f.read()
+        
+        # Replace restricted scaling viewports with adaptive accessible headers
+        bad_meta = 'content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"'
+        good_meta = 'content="width=device-width, initial-scale=1.0, initial-scale=1.0"'
+        
+        if bad_meta in content:
+            content = content.replace(bad_meta, good_meta)
+            with open(index_html, "w", encoding="utf-8") as f:
+                f.write(content)
+            print("[System] Webhint accessibility validation patch successfully injected.")
+
 if __name__ == "__main__":
+    import sys
+    # Runs compilation pipeline
     ft.app(target=main, assets_dir="assets")
+    
+    # Executes HTML cleanup rule right after build generation completes
+    if "export" in sys.argv or "--web" in sys.argv:
+        apply_webhint_patch()
